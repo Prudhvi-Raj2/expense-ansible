@@ -30,7 +30,7 @@
       dest: /tmp/backend.zip
 
   - name: unzip backend.zip
-    ansbile.builtin.unarchive:
+    ansbile.builtin.unarchieve:
       src: /tmp/backend.zip
       dest: /app
       remote_src: yes
