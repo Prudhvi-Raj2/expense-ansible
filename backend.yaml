@@ -1,0 +1,16 @@
+- name: configuring the backend for ExpenseApp
+  hosts: backend
+  become: yes
+  tasks:
+  - name: disable NodeJS
+    ansible.builtin.command: dnf module disable nodejs -y
+  - name: Enable NodeJs 20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+  
+  - name: install NodeJS
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - nodejs
+
